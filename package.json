@@ -4,7 +4,10 @@
   "description": "agenda fácil programado inteiramente por Matheus Barbosa",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev",
+    "dev": "npm run services:up && next dev",
+    "services:up": "docker compose -p agendafacil -f infra/compose.yaml up -d",
+    "services:stop": "docker compose -p agendafacil -f infra/compose.yaml stop",
+    "services:down": "docker compose -p agendafacil -f infra/compose.yaml down",
     "lint:check": "prettier --check .",
     "lint:fix": "prettier --write .",
     "test": "jest",
